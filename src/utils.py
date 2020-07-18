@@ -16,11 +16,9 @@ def login():
                 'portal%3Dindia&locale=en_US'
     selenium_browser_object = webdriver.Chrome(r"C:\Users\admin\Downloads\chromedriver.exe")
     selenium_browser_object.minimize_window()
-    # login_id = input("enter login id for ebird\n")
-    # password = input("enter password\n")
     selenium_browser_object.get(login_url)
-    selenium_browser_object.find_element_by_name("username").send_keys("")
-    selenium_browser_object.find_element_by_name("password").send_keys("")
+    selenium_browser_object.find_element_by_name("username").send_keys("your-username")
+    selenium_browser_object.find_element_by_name("password").send_keys("your-password")
     selenium_browser_object.find_element_by_id("form-submit").click()
     return selenium_browser_object
 

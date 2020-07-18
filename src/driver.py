@@ -3,7 +3,7 @@ a program to perform all ebird actions.
 """
 from src.controllers import get_life_list, get_location_based_lifers, get_region_list, compare_year_list, \
     summarise_checklists, compare_hotspots, get_possible_lifers_in_a_hotspot, get_possible_lifers_in_a_trip, \
-    needs_list, compare_district_year_list
+    needs_list
 
 if __name__ == '__main__':
     while True:
