@@ -21,35 +21,33 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-from src.controllers import get_life_list, get_location_based_lifers, get_region_list, compare_year_list, \
-    summarise_checklists, compare_hotspots, get_possible_lifers_in_a_hotspot, get_possible_lifers_in_a_trip, \
-    needs_list
+from src.controllers import Controllers
 
 if __name__ == '__main__':
+    controllers = Controllers()
     while True:
-        choice = int(input(
-            "\nPress 1 for Life list press\n\t  2 for location based details for lifers\n\t"
-            "  3 for summarising checklists\n\t  4 for comparing hotspots \n\t  5 for region list\n\t"
-            "  6 for year list comparision\n\t"
-            "  8 for possible lifers in a hotspot\n\t  9 possible lifers in a trip (multiple hotspots)\n\t"
-            "  10 for needs list for a district\n\t  Anything else to exit\n"))
+        choice = int(input("\nPress 1 for Life list press\n\t  2 for location based details for lifers\n\t"
+                           "  3 for summarising checklists\n\t  4 for comparing hotspots \n\t  5 for region list\n\t"
+                           "  6 for year list comparision\n\t  7 for possible lifers in a hotspot\n\t"
+                           "  8 possible lifers in a trip (multiple hotspots)\n\t  9 for needs list for a district\n\t"
+                           "  Anything else to exit\n"))
         if choice == 1:
-            get_life_list()
+            controllers.print_life_list()
         elif choice == 2:
-            get_location_based_lifers()
+            controllers.print_location_based_lifers()
         elif choice == 3:
-            summarise_checklists()
+            controllers.print_checklist_summary()
         elif choice == 4:
-            compare_hotspots()
+            controllers.print_hotspots_comparision()
         elif choice == 5:
-            get_region_list()
+            controllers.print_region_list()
         elif choice == 6:
-            compare_year_list()
+            controllers.print_year_list_comparision()
+        elif choice == 7:
+            controllers.print_possible_lifers_in_a_hotspot()
         elif choice == 8:
-            get_possible_lifers_in_a_hotspot()
+            controllers.print_possible_lifers_in_a_trip()
         elif choice == 9:
-            get_possible_lifers_in_a_trip()
-        elif choice == 10:
-            needs_list()
+            controllers.print_needs_list()
         else:
             exit(0)
