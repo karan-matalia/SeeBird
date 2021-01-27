@@ -84,12 +84,12 @@ def get_hotspot_details(web_page):
     """
     hotspot_list = []
     bs4_object = BeautifulSoup(web_page, html_parser)
-    hotspot_name = bs4_object.find(class_='hotspot--name').contents[0].strip()
-    bird_name_list = bs4_object.find_all(class_='species-name')
+    hotspot_name = bs4_object.find(class_='Heading-main').contents[0].strip()
+    bird_name_list = bs4_object.find_all(class_='Observation-species')
     for item in bird_name_list:
-        bird_name_list_a = item.find_all('a')
-        for bird_name in bird_name_list_a:
-            hotspot_list.append(bird_name.contents[0].strip())
+        bird_name_a = item.find('a')
+        if bird_name_a is not None and bird_name_a.find(class_='Heading-main') is not None:
+            hotspot_list.append(bird_name_a.find(class_='Heading-main').contents[0].strip())
     return hotspot_name, hotspot_list
 
 
